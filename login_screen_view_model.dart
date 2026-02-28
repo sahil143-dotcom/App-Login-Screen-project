@@ -27,7 +27,7 @@ String password = passwordController.text;
 bool notValid = !userService.validatePassword(password:password);
 if (notValid){
  ScaffoldMessenger.of(context).showSnackBar(
-   SnackBar(content: Text("password corrrect ga enter chey raa puka",style: TextStyle(color: Colors.white),),backgroundColor: Colors.red,)
+   SnackBar(content: Text("Enter correct password",style: TextStyle(color: Colors.white),),backgroundColor: Colors.red,)
  );
  return;
 }
@@ -35,7 +35,7 @@ if (notValid){
 bool userAccountNot = !userService.checkIfUserAlreadyHasAccount(userName: email);
 if(userAccountNot){
   ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Account ledu raa LAbbe!",style: TextStyle(color: Colors.white),),backgroundColor: Colors.red,)
+      SnackBar(content: Text("Account doesn't exists bro!!",style: TextStyle(color: Colors.white),),backgroundColor: Colors.red,)
   );
   return;
 }
@@ -43,7 +43,7 @@ if(userAccountNot){
   bool wrongCredentials = (dbUser ==null);
 if(wrongCredentials){
   ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("correct details add chey lekapote dengey!!",style: TextStyle(color: Colors.white),),backgroundColor: Colors.red,)
+      SnackBar(content: Text("Please enter correct details ",style: TextStyle(color: Colors.white),),backgroundColor: Colors.red,)
   );
   return;
 }
@@ -52,9 +52,10 @@ currentUser = dbUser;
 notifyListeners();
 
 ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(content: Text("Saadhinchav poo login ayyavv sakkaga",style: TextStyle(color: Colors.white),),backgroundColor: Colors.green,)
+    SnackBar(content: Text("Succefully logged in!!!",style: TextStyle(color: Colors.white),),backgroundColor: Colors.green,)
 );
 return;
 }
+
 
 }
